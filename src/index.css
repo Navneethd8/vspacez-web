@@ -1,0 +1,38 @@
+:root {
+  --ink: #12080d;
+  --plum: #370934;
+  --gold: #f0c35e;
+  --gold-soft: #f6d78a;
+  --terracotta: #a04020;
+  --paper: #f6edd6;
+  --muted: #e2c9a8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Outfit, system-ui, sans-serif;
+  color: var(--paper);
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
