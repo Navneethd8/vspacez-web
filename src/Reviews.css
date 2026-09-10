@@ -1,0 +1,263 @@
+.reviews {
+  position: relative;
+  isolation: isolate;
+  margin: 72px -8vw 0;
+  padding: 80px 8vw 64px;
+  overflow: hidden;
+  text-align: center;
+  color: #1a1404;
+}
+
+.reviews::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(18, 8, 13, 0.28), rgba(18, 8, 13, 0.45)),
+    url('/vaan-hall.jpg') center / cover no-repeat;
+}
+
+.reviews h2 {
+  margin: 0 auto 28px;
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(26, 8, 20, 0.28);
+}
+
+.reviews-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(26, 8, 20, 0.28);
+}
+
+.reviews-score strong {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.reviews-score-copy {
+  display: grid;
+  justify-items: start;
+  gap: 2px;
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+
+.reviews-count {
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+.google-mark {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.review-stars {
+  display: inline-flex;
+  gap: 1px;
+  color: #f4b400;
+}
+
+.review-stars .mdi {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.reviews-carousel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviews-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 36px) / 3);
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 8px 2px 16px;
+}
+
+.reviews-track::-webkit-scrollbar {
+  display: none;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 280px;
+  padding: 28px 22px 22px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(26, 8, 20, 0.16);
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.review-avatar {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.review-card p:not(.review-byline) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  margin: 12px 0 0;
+  color: #4a4038;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.review-byline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto !important;
+  padding-top: 18px;
+  color: #6b6258;
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
+.review-byline span {
+  line-height: 1;
+}
+
+.review-byline .google-mark {
+  width: 16px;
+  height: 16px;
+  transform: translateY(2px);
+}
+
+.reviews-arrow {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1404;
+  box-shadow: 0 6px 18px rgba(26, 8, 20, 0.16);
+  cursor: pointer;
+}
+
+.reviews-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.reviews-arrow .mdi {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.reviews-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.reviews-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+}
+
+.reviews-dots .is-active {
+  background: #fff;
+}
+
+@media (max-width: 1100px) {
+  .reviews-track {
+    grid-auto-columns: calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 860px) {
+  .reviews {
+    margin-left: -6vw;
+    margin-right: -6vw;
+    padding: 64px 6vw 56px;
+  }
+
+  .reviews-score {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 6px;
+  }
+
+  .reviews-score-copy {
+    width: 100%;
+    justify-items: center;
+  }
+
+  .reviews-carousel {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reviews-track {
+    grid-auto-columns: 100%;
+  }
+
+  .review-card {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .reviews-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+
+  .reviews-arrow:first-of-type {
+    left: 0;
+  }
+
+  .reviews-arrow:last-of-type {
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track {
+    scroll-behavior: auto;
+  }
+}

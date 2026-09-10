@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Reviews from '../Reviews.tsx'
 import Seo from '../Seo.tsx'
 import './Home.css'
 
@@ -34,6 +35,21 @@ const halls = [
   },
 ]
 
+const events = [
+  { title: 'Engagement', icon: 'mdi-ring', copy: 'The first celebration of the couple — intimate or grand, styled to the moment.' },
+  { title: 'Reception', icon: 'mdi-glass-flute', copy: 'A festive hall for hosting family and friends after the vows.' },
+  { title: 'Seemandam', icon: 'mdi-hand-heart', copy: 'A warm, traditional setting for this blessing ceremony.' },
+  { title: 'Sangeet', icon: 'mdi-music-note', copy: 'Music, dance, and a floor that can hold the energy of the night.' },
+  { title: 'Pre-wedding rituals', icon: 'mdi-flower', copy: 'Mehendi, haldi, and other rites with flexible floor plans.' },
+  { title: 'Post-wedding rituals', icon: 'mdi-home-heart', copy: 'Space for the ceremonies that follow the wedding day.' },
+  { title: 'Anniversary celebrations', icon: 'mdi-cake-variant', copy: 'Mark another year in a hall that feels like yours.' },
+  { title: 'Social functions', icon: 'mdi-account-group', copy: 'Birthdays, family gatherings, and evenings that need a hall with presence.' },
+  { title: 'Corporate meetups', icon: 'mdi-briefcase-outline', copy: 'Offsites, town halls, and client evenings across three floors.' },
+  { title: 'Workshops', icon: 'mdi-lightbulb-on-outline', copy: 'Talks, classes, and hands-on sessions with Wi-Fi and AV ready.' },
+  { title: 'Community nights', icon: 'mdi-microphone-variant', copy: 'Open mics, cultural evenings, and neighbourhood gatherings.' },
+  { title: 'Dining hall', icon: 'mdi-silverware-fork-knife', copy: 'Food is essential to every celebration — and every event includes a dining hall.' },
+]
+
 const amenities = [
   { title: 'Spaces to suit occasions', copy: '5,000 sq.ft across three distinct halls.' },
   { title: 'Green rooms', copy: 'Private prep space for hosts and performers.' },
@@ -60,7 +76,11 @@ export default function Home() {
         </Link>
         <nav>
           <a href="#spaces">Spaces</a>
+          <a href="#events">Events</a>
           <a href="#amenities">Amenities</a>
+          <a href="#reviews">Reviews</a>
+          <Link to="/tariff">Tariff</Link>
+          <Link to="/visit">Visit</Link>
           <a href="#contact">Contact</a>
           <a className="ghost" href={WHATSAPP} target="_blank" rel="noreferrer">
             WhatsApp
@@ -115,17 +135,39 @@ export default function Home() {
         </section>
 
         <section id="spaces" className="halls">
-          {halls.map((hall) => (
-            <article key={hall.name}>
-              <div className="hall-photo">
-                <img src={hall.photo} alt={`${hall.name} hall`} />
-                <img className="hall-mark" src={hall.mark} alt="" />
-              </div>
-              <p className="floor">{hall.floor}</p>
-              <h3>{hall.name}</h3>
-              <p>{hall.copy}</p>
-            </article>
-          ))}
+          <div className="halls-grid">
+            {halls.map((hall) => (
+              <article key={hall.name}>
+                <div className="hall-photo">
+                  <img src={hall.photo} alt={`${hall.name} hall`} />
+                  <img className="hall-mark" src={hall.mark} alt="" />
+                </div>
+                <p className="floor">{hall.floor}</p>
+                <h3>{hall.name}</h3>
+                <p>{hall.copy}</p>
+              </article>
+            ))}
+          </div>
+          <p className="halls-note">
+            The 1,600 sq ft halls with seating capacity of 150 and floating capacity up to
+            200 guests.
+          </p>
+        </section>
+
+        <section id="events" className="event-section">
+          <h2>Events we host</h2>
+          <p className="event-lede">
+            From wedding rituals to workshops — the halls adapt to the occasion.
+          </p>
+          <ul>
+            {events.map((item) => (
+              <li key={item.title}>
+                <i className={`mdi ${item.icon}`} aria-hidden="true" />
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section id="amenities" className="amenity-section">
@@ -140,9 +182,14 @@ export default function Home() {
           </ul>
         </section>
 
+        <Reviews />
+
         <section className="book-cta" aria-labelledby="book-heading">
           <h2 id="book-heading">Book your event</h2>
-          <p>Message us on WhatsApp or call — we’ll help you pick the hall and lock the date.</p>
+          <p>
+            Message us on WhatsApp or call — we’ll help you pick the hall and lock the
+            date with attractive seasonal discounts
+          </p>
           <div className="actions">
             <a className="primary" href={WHATSAPP} target="_blank" rel="noreferrer">
               WhatsApp
@@ -175,6 +222,8 @@ export default function Home() {
         </div>
         <div className="legal">
           <p>Moments Made Magical</p>
+          <Link to="/tariff">Tariff</Link>
+          <Link to="/visit">Visit</Link>
           <Link to="/privacy">Privacy policy</Link>
         </div>
       </footer>
