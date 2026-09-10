@@ -17,6 +17,8 @@ export default function Privacy() {
         </Link>
         <nav>
           <Link to="/">Home</Link>
+          <Link to="/tariff">Tariff</Link>
+          <Link to="/visit">Visit</Link>
         </nav>
       </header>
 
