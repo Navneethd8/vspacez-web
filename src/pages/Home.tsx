@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Seo from '../Seo.tsx'
 import './Home.css'
 
 const PHONE = '+917904757565'
@@ -47,6 +48,12 @@ const amenities = [
 export default function Home() {
   return (
     <div className="page">
+      <Seo
+        title="V SPACEZ | Moments Made Magical"
+        description="V SPACEZ — Chennai’s venue for social functions, corporate meetups, and celebrations. Nungambakkam."
+        path="/"
+        markdown="/index.md"
+      />
       <header className="top">
         <Link to="/" className="brand">
           <img src="/brand-logo.jpg" alt="V SPACEZ" />

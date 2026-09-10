@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
+import Seo from '../Seo.tsx'
 import './Home.css'
 
 export default function Privacy() {
   return (
     <div className="page privacy">
+      <Seo
+        title="Privacy policy | V SPACEZ"
+        description="How V SPACEZ collects, uses, and protects information when you visit our website or book our venue in Nungambakkam, Chennai."
+        path="/privacy"
+        markdown="/privacy.md"
+      />
       <header className="top">
         <Link to="/" className="brand">
           <img src="/brand-logo.jpg" alt="V SPACEZ" />
