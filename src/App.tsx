@@ -7,6 +7,7 @@ import Visit from './pages/Visit.tsx'
 import FloatingCta from './FloatingCta.tsx'
 
 const ADS_ID = 'AW-16713159186'
+const GA_ID = 'G-6BNGHZ76MB'
 
 function Analytics() {
   const location = useLocation()
@@ -14,6 +15,7 @@ function Analytics() {
   useEffect(() => {
     if (typeof window.gtag !== 'function') return
     window.gtag('config', ADS_ID, { page_path: location.pathname })
+    window.gtag('config', GA_ID, { page_path: location.pathname })
   }, [location.pathname])
 
   return null
